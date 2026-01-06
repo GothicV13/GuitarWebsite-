@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,91 +10,157 @@
 :root {
   --red: #8b0000;
   --dark-red: #4b0000;
-  --black: #0d0d0d;
-  --grey: #222;
+  --black: #0a0a0a;
+  --brown: #3e2b20;
   --gold: #d4af37;
+  --orange: #ff4500;
 }
 
+/* --- Reset and body --- */
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  background: var(--black);
+  background: linear-gradient(180deg, #0a0a0a 0%, #1c1c1c 100%);
   color: #fff;
 }
 
-a { color: var(--gold); text-decoration: none; }
+/* --- Links --- */
+a { text-decoration: none; color: var(--gold); transition: 0.3s; }
+a:hover { color: var(--orange); }
 
+/* --- Header --- */
 header {
   background: linear-gradient(to right, var(--dark-red), var(--black));
-  padding: 30px 20px;
+  padding: 40px 20px;
   text-align: center;
+  border-bottom: 3px solid var(--red);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-header h1 { font-family: 'UnifrakturCook', cursive; font-size: 3rem; margin: 0; letter-spacing: 2px; }
-header p { font-size: 1.2rem; margin-top: 10px; color: var(--red); }
+header h1 {
+  font-family: 'UnifrakturCook', cursive;
+  font-size: 3rem;
+  margin: 0;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-shadow: 2px 2px var(--red);
+}
+
+header p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: var(--orange);
+  font-weight: bold;
+}
 
 /* Language selector */
-.lang-switcher { margin-top: 10px; }
+.lang-switcher { margin-top: 15px; }
 .lang-btn {
   background: var(--red);
   color: #fff;
   border: 1px solid var(--gold);
-  padding: 5px 12px;
-  margin: 0 5px;
+  padding: 6px 14px;
+  margin: 0 6px;
   cursor: pointer;
   border-radius: 4px;
+  font-weight: bold;
   transition: all 0.3s;
 }
 .lang-btn:hover { background: var(--black); color: var(--gold); }
 
-/* Guitar listing */
+/* --- Guitar Grid --- */
 .guitar-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
   padding: 60px 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
+/* --- Guitar Card --- */
 .guitar-card {
-  background: var(--grey);
+  background: linear-gradient(145deg, var(--black), var(--brown));
   border: 2px solid var(--red);
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 0 20px #000;
   transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
 }
 
-.guitar-card:hover { transform: translateY(-5px); box-shadow: 0 0 20px var(--red); }
+.guitar-card:hover { transform: translateY(-6px); box-shadow: 0 0 30px var(--red); }
 
-.guitar-card img { width: 100%; height: auto; border-bottom: 2px solid var(--red); }
+/* Image overlay effect */
+.guitar-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: 2px solid var(--red);
+  transition: transform 0.4s;
+}
 
-.guitar-card-content { padding: 20px; text-align: center; }
+.guitar-card:hover img {
+  transform: scale(1.05) rotate(-1deg);
+}
 
-.guitar-card-content h3 { font-family: 'UnifrakturCook', cursive; color: var(--red); margin-bottom: 15px; font-size: 1.8rem; }
+/* Card content */
+.guitar-card-content {
+  padding: 25px;
+  text-align: center;
+}
 
-.guitar-card-content p { font-size: 1rem; line-height: 1.5; margin-bottom: 15px; }
+.guitar-card-content h3 {
+  font-family: 'UnifrakturCook', cursive;
+  color: var(--orange);
+  margin-bottom: 12px;
+  font-size: 1.9rem;
+  text-shadow: 1px 1px var(--red);
+}
 
+.guitar-card-content p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  color: #ddd;
+}
+
+/* CTA Button */
 .cta-button {
   display: inline-block;
-  padding: 10px 25px;
+  padding: 12px 28px;
   background: var(--red);
   color: #fff;
   font-weight: bold;
   border: 2px solid var(--gold);
-  border-radius: 4px;
+  border-radius: 6px;
   transition: all 0.3s;
 }
-.cta-button:hover { background: var(--black); color: var(--gold); border-color: var(--red); }
+.cta-button:hover {
+  background: var(--black);
+  color: var(--gold);
+  border-color: var(--orange);
+}
 
 /* Footer */
 footer {
-  background: var(--black);
+  background: linear-gradient(to right, var(--black), var(--brown));
   text-align: center;
-  padding: 30px 20px;
-  border-top: 2px solid var(--red);
-  font-size: 0.9rem;
-  color: #888;
+  padding: 40px 20px;
+  border-top: 3px solid var(--red);
+  font-size: 0.95rem;
+  color: #aaa;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .guitar-list { grid-template-columns: 1fr; }
+  header h1 { font-size: 2.4rem; }
+  header p { font-size: 1rem; }
 }
 </style>
 </head>
@@ -118,7 +185,7 @@ footer {
       <h3 data-en="Rattlesnake" data-fr="Serpent à Sonette" data-de="Klapperschlange" data-nl="Rattenslang">Rattlesnake</h3>
       <p data-en="Dean-style V shape, cherry-black gradient, Floyd Rose tremolo. Aggressive Southern metal tone." 
          data-fr="Forme V style Dean, dégradé noir cerise, vibrato Floyd Rose. Ton métal du Sud agressif." 
-         data-de="Dean-Style V-Form, Kirsch-Schwarz-Verlauf, Floyd Rose Tremolo. Aggressiver Southern-Metal-Ton." 
+         data-de="Dean-Style V-Form, Kirsch-Schwarz-Finish, Floyd Rose Tremolo. Aggressiver Southern-Metal-Ton." 
          data-nl="Dean-stijl V-vorm, kers-zwarte gradient, Floyd Rose tremolo. Agressieve Southern metal toon.">
          Dean-style V shape, cherry-black gradient, Floyd Rose tremolo. Aggressive Southern metal tone.
       </p>
@@ -126,7 +193,7 @@ footer {
     </div>
   </div>
 
-  <!-- Guitar 2: Example Model -->
+  <!-- Guitar 2: Nightfang -->
   <div class="guitar-card">
     <img src="https://i.imgur.com/5Y4xWkF.png" alt="Nightfang Guitar">
     <div class="guitar-card-content">
@@ -141,7 +208,7 @@ footer {
     </div>
   </div>
 
-  <!-- Guitar 3: Example Model -->
+  <!-- Guitar 3: Gravefang -->
   <div class="guitar-card">
     <img src="https://i.imgur.com/U9mY1ak.png" alt="Gravefang Guitar">
     <div class="guitar-card-content">
