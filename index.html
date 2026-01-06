@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nocturne Guitars</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #8b0000;
+  --dark-red: #4b0000;
+  --black: #0d0d0d;
+  --grey: #222;
+  --gold: #d4af37;
+}
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: var(--black);
+  color: #fff;
+}
+
+a { color: var(--gold); text-decoration: none; }
+
+header {
+  background: linear-gradient(to right, var(--dark-red), var(--black));
+  padding: 30px 20px;
+  text-align: center;
+}
+
+header h1 { font-family: 'UnifrakturCook', cursive; font-size: 3rem; margin: 0; letter-spacing: 2px; }
+header p { font-size: 1.2rem; margin-top: 10px; color: var(--red); }
+
+/* Language selector */
+.lang-switcher { margin-top: 10px; }
+.lang-btn {
+  background: var(--red);
+  color: #fff;
+  border: 1px solid var(--gold);
+  padding: 5px 12px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+.lang-btn:hover { background: var(--black); color: var(--gold); }
+
+/* Guitar listing */
+.guitar-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.guitar-card {
+  background: var(--grey);
+  border: 2px solid var(--red);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.guitar-card:hover { transform: translateY(-5px); box-shadow: 0 0 20px var(--red); }
+
+.guitar-card img { width: 100%; height: auto; border-bottom: 2px solid var(--red); }
+
+.guitar-card-content { padding: 20px; text-align: center; }
+
+.guitar-card-content h3 { font-family: 'UnifrakturCook', cursive; color: var(--red); margin-bottom: 15px; font-size: 1.8rem; }
+
+.guitar-card-content p { font-size: 1rem; line-height: 1.5; margin-bottom: 15px; }
+
+.cta-button {
+  display: inline-block;
+  padding: 10px 25px;
+  background: var(--red);
+  color: #fff;
+  font-weight: bold;
+  border: 2px solid var(--gold);
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+.cta-button:hover { background: var(--black); color: var(--gold); border-color: var(--red); }
+
+/* Footer */
+footer {
+  background: var(--black);
+  text-align: center;
+  padding: 30px 20px;
+  border-top: 2px solid var(--red);
+  font-size: 0.9rem;
+  color: #888;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1 data-en="Nocturne Guitars" data-fr="Guitares Nocturne" data-de="Nocturne Gitarren" data-nl="Nocturne Gitaren">Nocturne Guitars</h1>
+  <p data-en="Where Darkness Meets Shredding" data-fr="Où l'obscurité rencontre le shredding" data-de="Wo Dunkelheit auf Shredding trifft" data-nl="Waar duisternis shredding ontmoet">Where Darkness Meets Shredding</p>
+  <div class="lang-switcher">
+    <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+    <button class="lang-btn" onclick="setLanguage('fr')">FR</button>
+    <button class="lang-btn" onclick="setLanguage('de')">DE</button>
+    <button class="lang-btn" onclick="setLanguage('nl')">NL</button>
+  </div>
+</header>
+
+<section class="guitar-list">
+  <!-- Guitar 1: Rattlesnake -->
+  <div class="guitar-card">
+    <img src="https://i.imgur.com/EU3hNwO.png" alt="Rattlesnake Guitar">
+    <div class="guitar-card-content">
+      <h3 data-en="Rattlesnake" data-fr="Serpent à Sonette" data-de="Klapperschlange" data-nl="Rattenslang">Rattlesnake</h3>
+      <p data-en="Dean-style V shape, cherry-black gradient, Floyd Rose tremolo. Aggressive Southern metal tone." 
+         data-fr="Forme V style Dean, dégradé noir cerise, vibrato Floyd Rose. Ton métal du Sud agressif." 
+         data-de="Dean-Style V-Form, Kirsch-Schwarz-Verlauf, Floyd Rose Tremolo. Aggressiver Southern-Metal-Ton." 
+         data-nl="Dean-stijl V-vorm, kers-zwarte gradient, Floyd Rose tremolo. Agressieve Southern metal toon.">
+         Dean-style V shape, cherry-black gradient, Floyd Rose tremolo. Aggressive Southern metal tone.
+      </p>
+      <a href="#" class="cta-button" data-en="Order Now" data-fr="Commandez" data-de="Jetzt Bestellen" data-nl="Bestel Nu">Order Now</a>
+    </div>
+  </div>
+
+  <!-- Guitar 2: Example Model -->
+  <div class="guitar-card">
+    <img src="https://i.imgur.com/5Y4xWkF.png" alt="Nightfang Guitar">
+    <div class="guitar-card-content">
+      <h3 data-en="Nightfang" data-fr="Croc de Nuit" data-de="Nachtfang" data-nl="Nachtkies">Nightfang</h3>
+      <p data-en="Aggressive V-shape, black satin finish, high-output pickups. Gothic stage presence for shredders." 
+         data-fr="Forme V agressive, finition satin noir, micros haute sortie. Présence scénique gothique pour shredders." 
+         data-de="Aggressive V-Form, schwarze Satinoberfläche, High-Output-Pickups. Gotische Bühnenpräsenz für Shredder." 
+         data-nl="Agressieve V-vorm, zwarte satijnen finish, high-output pickups. Gotische podiumaanwezigheid voor shredders.">
+         Aggressive V-shape, black satin finish, high-output pickups. Gothic stage presence for shredders.
+      </p>
+      <a href="#" class="cta-button" data-en="Order Now" data-fr="Commandez" data-de="Jetzt Bestellen" data-nl="Bestel Nu">Order Now</a>
+    </div>
+  </div>
+
+  <!-- Guitar 3: Example Model -->
+  <div class="guitar-card">
+    <img src="https://i.imgur.com/U9mY1ak.png" alt="Gravefang Guitar">
+    <div class="guitar-card-content">
+      <h3 data-en="Gravefang" data-fr="Croc du Tombeau" data-de="Grabfang" data-nl="Grafenbijt">Gravefang</h3>
+      <p data-en="Sharp contours, ebony fretboard, black chrome hardware. Southern Gothic shredding made real." 
+         data-fr="Contours nets, touche en ébène, matériel chrome noir. Shredding gothique du Sud rendu réel." 
+         data-de="Scharfe Konturen, Ebenholzgriffbrett, schwarze Chrom-Hardware. Southern-Gothic-Shredding zum Leben erweckt." 
+         data-nl="Scherpe contouren, ebbenhouten toets, zwarte chroomhardware. Southern Gothic shredding werkelijkheid.">
+         Sharp contours, ebony fretboard, black chrome hardware. Southern Gothic shredding made real.
+      </p>
+      <a href="#" class="cta-button" data-en="Order Now" data-fr="Commandez" data-de="Jetzt Bestellen" data-nl="Bestel Nu">Order Now</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Nocturne Guitars | All Rights Reserved | Designed for Southern Metal Legends
+</footer>
+
+<script>
+function setLanguage(lang) {
+  const elements = document.querySelectorAll('[data-en]');
+  elements.forEach(el => {
+    const text = el.getAttribute(`data-${lang}`);
+    if(text) el.textContent = text;
+  });
+}
+</script>
+
+</body>
+</html>
